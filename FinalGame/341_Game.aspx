@@ -140,7 +140,7 @@
     <fieldset style="background-color: #3cbd4a; position: absolute; top: 690px; left: 5px; width: 500px; height: 500px;" id="equip">
         <legend>Equipment</legend>
         <img src="images/TestArmor.png" alt="armor" /> <br/>
-        <img src="images/sword.png" alt="sword" /> <br/>
+        <span id ="sword"><img src="images/sword.png" alt="sword"/></span> <br/>
     </fieldset>
 
     <!--Item Description-->

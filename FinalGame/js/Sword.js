@@ -104,16 +104,16 @@ Sword.prototype.init = function () {
     // http://webglstats.com/webgl/parameter/MAX_TEXTURE_IMAGE_UNITS
 
     // Texture 0
-    var image5 = new Image();
-    image5.crossOrigin = "anonymous";
-    image5.src = "images/" + this.picture;
-    image5.onload = function () {
-        var texture5 = gl.createTexture();
-        gl.activeTexture(gl.TEXTURE5);
-        gl.bindTexture(gl.TEXTURE_2D, texture5);
+    var image7 = new Image();
+    image7.crossOrigin = "anonymous";
+    image7.src = "images/" + this.picture;
+    image7.onload = function () {
+        var texture7 = gl.createTexture();
+        gl.activeTexture(gl.TEXTURE7);
+        gl.bindTexture(gl.TEXTURE_2D, texture7);
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
         gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-            gl.UNSIGNED_BYTE, image5);
+            gl.UNSIGNED_BYTE, image7);
         gl.generateMipmap(gl.TEXTURE_2D);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER,
             gl.NEAREST_MIPMAP_LINEAR);
@@ -165,7 +165,7 @@ Sword.prototype.show = function () {
     gl.enable(gl.CULL_FACE);
     gl.cullFace(gl.FRONT);
 
-    gl.uniform1i(gl.getUniformLocation(program, "texture"), 5);
+    gl.uniform1i(gl.getUniformLocation(program, "texture"), 7);
     gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
     gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 12);
     gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 24);

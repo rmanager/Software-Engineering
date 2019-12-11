@@ -72,6 +72,7 @@ var obj = 0;
 var countDown = 60;
 var gameState = 0;
 var g_matrixStack = []; // Stack for storing a matrix
+var scream = 0;
 
 
 
@@ -152,10 +153,10 @@ function render() {
     arena.show();
     if (hero.getHealth() > 0) {
         hero.show();
-    } else {
-        audio.pause();
-        audio = new Audio('music/Wilhelm Scream sound effect.mp3');
-        audio.play();
+    } else if(scream == 0){
+        var a = new Audio('music/Wilhelm Scream sound effect.mp3');
+        a.play();
+        scream = 1;
     }
 	
     spot = hero.getXYZ();
@@ -204,7 +205,7 @@ function render() {
         xyz = arena.getHeroStart();
         hero.setXYZ(xyz[0], xyz[1], xyz[2]);
         audio.pause();
-        audio = new Audio('music/Four Beers Polka.mp3');
+        audio = new Audio('music/Final-Loop.mp3');
         audio.play();
     }
 	
@@ -294,6 +295,8 @@ function render() {
                         } else {
                             arena = new Level(program, 0, 60, 0, "End", screens[0], "End.png",[]);
                             audio.pause();
+                            audio = new Audio('music/Game-Over.mp3');
+                            audio.play();
                             arena.init();
                         }
                     }
@@ -342,27 +345,27 @@ window.onkeydown = function (event) {
     var key = String.fromCharCode(event.keyCode);
     switch (key) {
         case 'D':
-            if (onRight == false) {
+            if (onRight == false && hero.getHealth() >= 0) {
                 hero.moveX(5);
             }
             break;
         case 'A':
-            if (onLeft == false) {
+            if (onLeft == false && hero.getHealth() >= 0) {
                 hero.moveX(-5);
             }
             break;
         case 'S':
-            if (arena.getName() == "Demo") {
+            if (arena.getName() == "Demo" && hero.getHealth() >= 0) {
                 hero.moveZ(5);
             }
             break;
         case 'W':
-            if (arena.getName() == "Demo") {
+            if (arena.getName() == "Demo" && hero.getHealth() >= 0) {
                 hero.moveZ(-5);
             }
             break;
         case 'E':
-            if (onFloor == true && arena.getName() != "Demo") {
+            if (onFloor == true && arena.getName() != "Demo" && hero.getHealth() >= 0) {
                 hero.jump();
             }
             break;
@@ -371,7 +374,7 @@ window.onkeydown = function (event) {
                 var xyz = arena.getHeroStart();
                 hero.setXYZ(xyz[0], xyz[1], xyz[2]);
                 hero.setHealth(100);
-                audio.play();
+                scream = 0;
             }
             break;
         case 'C':
