@@ -254,12 +254,15 @@ function render() {
                     floorBindings[j].setPickUp(true);
                     hero.getSword = true;
                     hero.setSword(floorBindings[j].getAttack());
+                    document.getElementById('sword').style.display = 'block';
                 }
             }
-            if (floorBindings[j].getPicture() == "Curd.png" || floorBindings[j].getPicture() == "BigBleu.png") 
+            if (floorBindings[j].getPicture() == "Curd.png" || floorBindings[j].getPicture() == "BigBleu.png")
                 floorZ.push(floorBindings[j].getHealth());
-            else if (floorBindings[j].getPicture() == "sword.png") 
+            else if (floorBindings[j].getPicture() == "sword.png") {
                 floorZ.push(floorBindings[j].getAttack());
+            } 
+                
             if ((heroPos[0] <= floorZ[0] + 230 && heroPos[0] >= floorZ[0] - 230) && (heroPos[2] >= floorZ[2] - 150 && heroPos[2] <= floorZ[2] + 50))
                 check.push(floorZ);
         }
