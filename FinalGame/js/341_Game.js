@@ -164,7 +164,7 @@ function render() {
         hero.setHealth(hero.getHealth() - 0.5);
     
 	
-    if (arena.getName() == "Demo" && spot[0] >= 50 && spot[2] >= 50) {
+    if (arena.getName() == "Demo" && spot[0] >= 150 && spot[0] <= 250 && spot[2] >= 50 && spot[2] <= 150) {
         arena = new Level1(program, -750, 20, 900, "Level1", screens[1], "Level1.png");
         arena.init();
         floorBindings = arena.getBindings();
@@ -175,7 +175,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Demo" && spot[0] <= -50 && spot[0] >= -150 && spot[2] <= -50 && spot[2] >= -150) {
+    if (arena.getName() == "Demo" && spot[0] >= 500 && spot[0] <= 600 && spot[2] <= -500 && spot[2] >= -600) {
         arena = new Level2(program, -750, 20, 900, "Level2", screens[1], "Level1.png");
         arena.init();
         floorBindings = arena.getBindings();
@@ -186,7 +186,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Demo" && spot[0] <= -500 && spot[0] >= -600 && spot[2] <= -50 && spot[2] >= -150) {
+    if (arena.getName() == "Demo" && spot[0] <= -700 && spot[0] >= -800 && spot[2] <= -50 && spot[2] >= -150) {
         arena = new Level3(program, -750, 20, 900, "Level3", screens[1], "Level1.png");
         arena.init();
         floorBindings = arena.getBindings();

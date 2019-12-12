@@ -13,32 +13,14 @@
                     
                 }
             </script>
-            <input id="Username" name="Username" type="text"/>
+            <asp:TextBox runat="server" id="Username" name="Username" type="text"/>
             <br/>
-            <asp:TextBox runat="server" id="Password"/>
+            <asp:TextBox runat="server" id="Password" type="password"/>
             <br/>
-            <asp:Button runat="server" onclick="Hash" />
-
-
-            <script type="text/javascript">
-                function bruh() {
-                    var u = document.getElementById('Username').value;
-                    var p = document.getElementById('Password').value;
-                    var list = "<%=Login()%>";
-                    var hash = Hash();
-                    var all = list.split("&");
-                    for (var i = 0; i < all.length; ++i) {
-                        var pass = eval(hash);
-                        pass = pass(p);
-                        if (all[i].includes(u) == true) {
-                            document.getElementsByName('enter').disable();
-
-                        }
-                    }
-                }
-
-                /*onclick="checkCred(document.getElementsByName('Username'), document.getElementsByName('Password'))"*/
-            </script>
+            <asp:Button runat="server" onclick ="Login" text="Submit"/>
+            <asp:Button runat="server" onclick ="NewUser" text="Create New Account" />
+            <br/>
+            <asp:TextBox Width="350" runat="server" id="info" type="text" isEnabled="false" ReadOnly="true" style="border:none" Text="Passwords must inclue one number and one symbol!"/>
         </div>
     </form>
 </body>
