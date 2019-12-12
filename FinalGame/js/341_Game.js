@@ -73,6 +73,7 @@ var countDown = 60;
 var gameState = 0;
 var g_matrixStack = []; // Stack for storing a matrix
 var scream = 0;
+var a;
 
 
 
@@ -154,7 +155,7 @@ function render() {
     if (hero.getHealth() > 0) {
         hero.show();
     } else if(scream == 0){
-        var a = new Audio('music/Wilhelm Scream sound effect.mp3');
+        a = new Audio('music/Wilhelm Scream sound effect.mp3');
         a.play();
         scream = 1;
     }
@@ -176,7 +177,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Demo" && spot[0] >= 500 && spot[0] <= 600 && spot[2] <= -500 && spot[2] >= -600) {
+    else if (arena.getName() == "Demo" && spot[0] >= 500 && spot[0] <= 600 && spot[2] <= -500 && spot[2] >= -600) {
         arena = new Level2(program, -750, 20, 900, "Level2", screens[1], "Level1.png");
         arena.init();
         floorBindings = arena.getBindings();
@@ -187,7 +188,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Demo" && spot[0] <= -700 && spot[0] >= -800 && spot[2] <= -50 && spot[2] >= -150) {
+    else if (arena.getName() == "Demo" && spot[0] <= -700 && spot[0] >= -800 && spot[2] <= -50 && spot[2] >= -150) {
         arena = new Level3(program, -750, 20, 900, "Level3", screens[1], "Level1.png");
         arena.init();
         floorBindings = arena.getBindings();
@@ -198,7 +199,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Demo" && spot[0] >= 900) {
+    else if (arena.getName() == "Demo" && spot[0] >= 900) {
         arena = new BossLevel(program, -950, 20, 900, "BossLevel", screens[1], "Level1.png");
         arena.init();
         floorBindings = arena.getBindings();
@@ -209,7 +210,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Level1" && spot[0] <= -900 && spot[2] <= -800) {
+    else if (arena.getName() == "Level1" && spot[0] <= -900 && spot[2] <= -800) {
         arena = new Map(program, 0, 20, 0, "Demo", screens[0]);
         arena.init();
         floorBindings = arena.getBindings();
@@ -220,7 +221,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Level2" && spot[0] >= 100 && spot[2] <= -200) {
+    else if (arena.getName() == "Level2" && spot[0] >= 100 && spot[2] <= -200) {
         arena = new Map(program, 0, 20, 0, "Demo", screens[0]);
         arena.init();
         floorBindings = arena.getBindings();
@@ -231,7 +232,7 @@ function render() {
         audio.play();
     }
 	
-    if (arena.getName() == "Level3" && spot[0] >= 600 && spot[2] <= 0) {
+    else if (arena.getName() == "Level3" && spot[0] >= 600 && spot[2] <= 0) {
         arena = new Map(program, 0, 20, 0, "Demo", screens[0]);
         arena.init();
         floorBindings = arena.getBindings();
@@ -378,6 +379,7 @@ window.onkeydown = function (event) {
                 hero.setXYZ(xyz[0], xyz[1], xyz[2]);
                 hero.setHealth(100);
                 scream = 0;
+                a.pause();
             }
             break;
         case 'C':
