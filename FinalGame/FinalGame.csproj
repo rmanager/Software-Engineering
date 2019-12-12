@@ -151,7 +151,9 @@
     <Content Include="js\Villain.js" />
     <Content Include="LoginPage.html" />
     <Content Include="music\Double Polka.mp3" />
+    <Content Include="music\Final-Loop.mp3" />
     <Content Include="music\Four Beers Polka.mp3" />
+    <Content Include="music\Game-Over.mp3" />
     <Content Include="music\Meanwhile in Bavaria.mp3" />
     <Content Include="music\Wilhelm Scream sound effect.mp3" />
     <Content Include="Web.config" />
